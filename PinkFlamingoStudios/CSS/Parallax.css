@@ -1,0 +1,32 @@
+﻿    body, html {
+    height: 100%;
+    margin: 0;
+    width: 100%;
+
+}
+
+.img1, .img2, .img3{
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.img1 { 
+    background-image: url("../../Images/triay2.jpg");
+    height: 100% !important; 
+    width: 100% !important;
+    padding:45% 0 0;
+}
+
+.img2{
+    background-image: url("../../Images/harry_potter_desk_wallpaper_and_gmail_theme_by_bamberos-d5stmxz.jpg");
+    min-height: 400px; 
+}
+
+.img3{
+    background-image: url("../../Images/tumblr_static_1355190159744.jpg");
+    min-height: 400px;
+}
