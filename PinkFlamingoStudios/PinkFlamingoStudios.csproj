@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -195,6 +197,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="BusinessLogic.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -203,8 +206,32 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\billingAddress.cs">
+      <DependentUpon>PreOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\creditCardInfo.cs">
+      <DependentUpon>PreOrder.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PreOrder.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOrder.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreOrder.cs">
+      <DependentUpon>PreOrder.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOrder.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PreOrder1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PreOrder.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -216,10 +243,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\flamingo-01.png" />
     <Content Include="Images\harry_potter_desk_wallpaper_and_gmail_theme_by_bamberos-d5stmxz.jpg" />
+    <Content Include="Images\karen.jpg" />
+    <Content Include="Images\parte1.png" />
+    <Content Include="Images\ruth.jpg" />
     <Content Include="Images\triay2.jpg" />
     <Content Include="Images\tumblr_static_1355190159744.jpg" />
     <Content Include="Images\wallpaper-1920.jpg" />
+    <Content Include="Models\PreOrder.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PreOrder.edmx</DependentUpon>
+      <LastGenOutput>PreOrder.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PreOrder.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PreOrder.edmx</DependentUpon>
+      <LastGenOutput>PreOrder1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -227,7 +268,13 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="CSS\Parallax.scss" />
+    <EntityDeploy Include="Models\PreOrder.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PreOrder.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PreOrder.edmx.diagram">
+      <DependentUpon>PreOrder.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -276,6 +323,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\PFS\Index.cshtml" />
     <Content Include="Views\PFS\AboutUs.cshtml" />
+    <Content Include="Views\PFS\Contact.cshtml" />
+    <Content Include="Views\PFS\PreOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -287,6 +336,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

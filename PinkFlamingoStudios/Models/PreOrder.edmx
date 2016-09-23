@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PinkFlamingosModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="billingAddress">
+          <Key>
+            <PropertyRef Name="idBillingAdd" />
+          </Key>
+          <Property Name="idBillingAdd" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTransaction" Type="int" Nullable="false" />
+          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="addressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="addressLine2" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="zipCode" Type="int" Nullable="false" />
+          <Property Name="city" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="state" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="country" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="telephoneNumber" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creditCardInfo">
+          <Key>
+            <PropertyRef Name="idTransaction" />
+          </Key>
+          <Property Name="idTransaction" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUser" Type="int" Nullable="false" />
+          <Property Name="creditCardNumber" Type="bigint" Nullable="false" />
+          <Property Name="expDate" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="cvc" Type="int" Nullable="false" />
+          <Property Name="cardName" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreOrder">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secondName" Type="varchar" MaxLength="20" />
+          <Property Name="firstLastName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="secondLastName" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PinkFlamingosModelStoreContainer">
+          <EntitySet Name="billingAddress" EntityType="Self.billingAddress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="creditCardInfo" EntityType="Self.creditCardInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PreOrder" EntityType="Self.PreOrder" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PinkFlamingosModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="billingAddress">
+          <Key>
+            <PropertyRef Name="idBillingAdd" />
+          </Key>
+          <Property Name="idBillingAdd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTransaction" Type="Int32" Nullable="false" />
+          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="addressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="addressLine2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="zipCode" Type="Int32" Nullable="false" />
+          <Property Name="city" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="state" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="country" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telephoneNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creditCardInfo">
+          <Key>
+            <PropertyRef Name="idTransaction" />
+          </Key>
+          <Property Name="idTransaction" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUser" Type="Int32" Nullable="false" />
+          <Property Name="creditCardNumber" Type="Int64" Nullable="false" />
+          <Property Name="expDate" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cvc" Type="Int32" Nullable="false" />
+          <Property Name="cardName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PreOrder">
+          <Key>
+            <PropertyRef Name="idUser" />
+          </Key>
+          <Property Name="idUser" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="firstLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="secondLastName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PinkFlamingosEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="billingAddresses" EntityType="Self.billingAddress" />
+          <EntitySet Name="creditCardInfoes" EntityType="Self.creditCardInfo" />
+          <EntitySet Name="PreOrders" EntityType="Self.PreOrder" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PinkFlamingosModelStoreContainer" CdmEntityContainer="PinkFlamingosEntities">
+          <EntitySetMapping Name="billingAddresses">
+            <EntityTypeMapping TypeName="PinkFlamingosModel.billingAddress">
+              <MappingFragment StoreEntitySet="billingAddress">
+                <ScalarProperty Name="idBillingAdd" ColumnName="idBillingAdd" />
+                <ScalarProperty Name="idTransaction" ColumnName="idTransaction" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="addressLine1" ColumnName="addressLine1" />
+                <ScalarProperty Name="addressLine2" ColumnName="addressLine2" />
+                <ScalarProperty Name="zipCode" ColumnName="zipCode" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="telephoneNumber" ColumnName="telephoneNumber" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creditCardInfoes">
+            <EntityTypeMapping TypeName="PinkFlamingosModel.creditCardInfo">
+              <MappingFragment StoreEntitySet="creditCardInfo">
+                <ScalarProperty Name="idTransaction" ColumnName="idTransaction" />
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="creditCardNumber" ColumnName="creditCardNumber" />
+                <ScalarProperty Name="expDate" ColumnName="expDate" />
+                <ScalarProperty Name="cvc" ColumnName="cvc" />
+                <ScalarProperty Name="cardName" ColumnName="cardName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PreOrders">
+            <EntityTypeMapping TypeName="PinkFlamingosModel.PreOrder">
+              <MappingFragment StoreEntitySet="PreOrder">
+                <ScalarProperty Name="idUser" ColumnName="idUser" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="secondName" ColumnName="secondName" />
+                <ScalarProperty Name="firstLastName" ColumnName="firstLastName" />
+                <ScalarProperty Name="secondLastName" ColumnName="secondLastName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
