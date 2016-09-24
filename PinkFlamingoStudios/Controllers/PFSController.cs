@@ -10,7 +10,8 @@ namespace PinkFlamingoStudios.Controllers
     public class PFSController : Controller
     {
         // GET: PFS
-        PinkFlamingosEntities pf = new PinkFlamingosEntities(); 
+        PinkFlamingosEntities pf = new PinkFlamingosEntities();
+        BusinessLogic bl = new BusinessLogic();
         public ActionResult Index()
         {
             return View();
@@ -26,6 +27,17 @@ namespace PinkFlamingoStudios.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Contact(sendEmail email)
+        {
+            if (ModelState.IsValid)
+            {
+                bl.sendMail(email.Email, email.msg);
+            }
+           
+            return View();
+        }
+
         public ActionResult PreOrder()
         {
             return View();
@@ -36,7 +48,7 @@ namespace PinkFlamingoStudios.Controllers
         {
             if (ModelState.IsValid)
             {
-                
+                bl.addOrder(order.firstName, order.secondName, order.firstLastName, order.secondLastName, order.email);
             }
             return View();
         }

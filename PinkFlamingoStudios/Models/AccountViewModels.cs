@@ -112,6 +112,55 @@ namespace PinkFlamingoStudios.Models
 
     public class OrderViewModel
     {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Required]
+        public string firstName { get; set; }
+
+        public string secondName { get; set; }
+
+        [Required]
+        public string firstLastName { get; set; }
+
+        public string secondLastName { get; set; }
 
     }
+
+    public class sendEmail
+    {
+        [Required]
+        [EmailAddress]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        public string msg { get; set; }
+    }
+
+    public class address
+    {
+        [Required]
+        public string addressLine1 { get; set; }
+        
+        public string addressLine2 { get; set; }
+
+        [Required]
+        public int zip { get; set; }
+
+        [Required]
+        public string city { get; set; }
+
+        [Required]
+        public string state { get; set; }
+
+        [Required]
+        public string country { get; set; }
+
+        [Required]
+        public string phone { get; set; }
+    }
 }
+
+

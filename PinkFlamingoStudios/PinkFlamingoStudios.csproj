@@ -247,9 +247,11 @@
     <Content Include="Images\harry_potter_desk_wallpaper_and_gmail_theme_by_bamberos-d5stmxz.jpg" />
     <Content Include="Images\karen.jpg" />
     <Content Include="Images\parte1.png" />
+    <Content Include="Images\personajes.jpg" />
     <Content Include="Images\ruth.jpg" />
     <Content Include="Images\triay2.jpg" />
     <Content Include="Images\tumblr_static_1355190159744.jpg" />
+    <Content Include="Images\twitter-logo_1.png" />
     <Content Include="Images\wallpaper-1920.jpg" />
     <Content Include="Models\PreOrder.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
