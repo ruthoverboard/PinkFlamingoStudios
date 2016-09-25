@@ -1,0 +1,45 @@
+﻿@model PinkFlamingoStudios.Models.creditCardViewModel
+@using PinkFlamingoStudios;
+
+@{
+    ViewBag.Title = "Pay $2 only!";
+
+}
+
+<div class="container">
+    <div class="row">
+        <h3>Just pay 2 dollars!</h3>
+        <h2></h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-2">
+
+            @{
+                if (BusinessLogic.creditCard == true)
+                {
+                    using (Html.BeginForm())
+                    {
+                        <p>Credit Card number:</p>
+                        <p> @Html.TextBoxFor(x => x.creditCardNumber)</p>
+                        <p>Expiration date:</p>
+                        <p>@Html.TextBoxFor(x => x.expDate)</p>
+                        <p>CVC:</p>
+                        <p>@Html.TextBoxFor(x => x.cvc)</p>
+                        <p>Credit Card name:</p>
+                        <p>@Html.TextBoxFor(x => x.cardName)</p>
+                        <input type="submit" value="Order now!" />
+                    }
+                }
+                else
+                {
+                    <div class="row">
+                        <h2>Thanks for ordering our game!</h2>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
+

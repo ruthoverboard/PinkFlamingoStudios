@@ -10,6 +10,9 @@ namespace PinkFlamingoStudios
     public class BusinessLogic
     {
         SqlConnection pfCon = new SqlConnection(@"Data Source=(localdb)\V12.0;Initial Catalog=PinkFlamingos;Integrated Security=True");
+        public static bool name { get; set; }
+        public static bool creditCard { get; set; }
+        public static bool address { get; set; }
 
         public void connect()
         {

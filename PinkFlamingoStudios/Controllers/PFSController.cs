@@ -40,15 +40,51 @@ namespace PinkFlamingoStudios.Controllers
 
         public ActionResult PreOrder()
         {
-            return View();
+            BusinessLogic.name = false;
+            BusinessLogic.creditCard = false;
+            BusinessLogic.address = false;
+            return View("PreOrder");
         }
 
         [HttpPost]
-        public ActionResult PreOrder(PreOrder order)
+        public ActionResult PreOrder(PreOrder order, creditCardInfo creditCard)
         {
+            if(order.firstName == null && creditCard.creditCardNumber != null)  
+            {
+                if(creditCard != null)
+                {
+                    creditCard.idUser = 1;
+                    pf.creditCardInfoes.Add(creditCard);
+                    pf.SaveChanges();
+                    BusinessLogic.name = true;
+
+                    return View("PreOrder");
+                }
+                return View();
+            }
+            else 
+            {
+
+                    pf.PreOrders.Add(order);
+                    pf.SaveChanges();
+                    BusinessLogic.name = true;
+                    BusinessLogic.creditCard = true;
+                
+                return View("CreditCard2");
+            }
+          
+           
+        }
+
+        [HttpPost]
+        public ActionResult CreditCard(creditCardInfo creditCard)
+        {
+
             if (ModelState.IsValid)
             {
-                bl.addOrder(order.firstName, order.secondName, order.firstLastName, order.secondLastName, order.email);
+                pf.creditCardInfoes.Add(creditCard);
+                pf.SaveChanges();
+                BusinessLogic.name = true;
             }
             return View();
         }

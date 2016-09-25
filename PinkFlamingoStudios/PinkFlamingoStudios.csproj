@@ -327,6 +327,8 @@
     <Content Include="Views\PFS\AboutUs.cshtml" />
     <Content Include="Views\PFS\Contact.cshtml" />
     <Content Include="Views\PFS\PreOrder.cshtml" />
+    <Content Include="Views\PFS\creditCard.cshtml" />
+    <Content Include="Views\PFS\CreditCard2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

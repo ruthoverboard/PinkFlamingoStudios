@@ -139,7 +139,7 @@ namespace PinkFlamingoStudios.Models
         public string msg { get; set; }
     }
 
-    public class address
+    public class addressViewModel
     {
         [Required]
         public string addressLine1 { get; set; }
@@ -160,6 +160,19 @@ namespace PinkFlamingoStudios.Models
 
         [Required]
         public string phone { get; set; }
+    }
+
+    public class creditCardViewModel
+    {
+        public int idUser { get; set; }
+
+        public long creditCardNumber { get; set; }
+
+        public string expDate { get; set; }
+
+        public int cvc { get; set; }
+
+        public string cardName { get; set; }
     }
 }
 
